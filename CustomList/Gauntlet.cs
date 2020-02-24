@@ -11,7 +11,10 @@ namespace CustomList
         public int Count { get { return count; } }
         private int count;
         private int capacity;
+        
         private T[] underLyingArray;
+        
+        
         public Gauntlet()
         {
             count = 0;
@@ -22,15 +25,12 @@ namespace CustomList
         /// <summary>
         /// Adds an Item to the list
         /// </summary>
-        public void Add(T item) 
+        public void Collect(T item) 
         {
-            try
+            bool checkIFFull = CheckFullStatus();
+            if (checkIFFull == true) 
             {
-
-            }
-            catch(Exception) 
-            {
-
+                CreateArray();
             }
         }
         
@@ -42,9 +42,13 @@ namespace CustomList
         /// <summary>
         /// Adds to the count of the Gaunlet
         /// </summary>
-        private void SetNewCount() 
+        private void AddToCount() 
         {
             this.count++;
+        }
+        private void RemoveFromCount() 
+        {
+            this.count--;
         }
         /// <summary>
         /// Checks if the underlying array is full
@@ -60,21 +64,26 @@ namespace CustomList
         }
         
         //Should there be no underlying array, this will create one.
-        private void CreateNewArray() 
+        private void CreateArray() 
         {
             bool NewOrExapnd = NewOrExpand();
             if (NewOrExapnd == true)
             {
-                this.underLyingArray = new T[4];
                 this.capacity = 4;
+                SetNewArrayDefaultValues(underLyingArray, this.capacity);
             }
             else 
             {
-                //create a temporary Array of Equal Size to the one now
-                //Copy all items of current array to that array
-                //Resize Current Array
-                //Copy Values from temporary array to the current array
-               //Destroy the previous array.
+                int tempCapacity = SetTempCapacity();
+                T[] temporary = CreateTemporaryArray(tempCapacity); 
+                SetNewArrayDefaultValues(temporary, tempCapacity);
+                
+                CopyValuesToTemporaryArray(temporary, tempCapacity);
+                ExapndCurrentArray();
+
+                SetNewArrayDefaultValues(underLyingArray, this.capacity);
+                CopyValuesToCurrentArray(temporary, tempCapacity);
+               //Destroy the previous array (Happens AutoMagically)
             }
         }
         //Sets the default values of the new array
@@ -89,20 +98,43 @@ namespace CustomList
             }
             return NOE;
         }
-        private void SetNewArrayExtraValues() 
+        private void SetNewArrayDefaultValues(T[] arrayToDefaultize, int capacityOfArray) 
         {
-            for (int i = 0; i < this.capacity; i++)
+            
+            for (int i = 0; i < capacityOfArray; i++)
             {
-                this.underLyingArray[i] = default;
+                arrayToDefaultize[i] = default;
             }
         }
-        
-        
-        
-        private void CheckCount() 
+        private int SetTempCapacity() 
         {
-
+            return this.capacity;
         }
+        private T[] CreateTemporaryArray(int tempCapacity) 
+        {
+            T[] temporary = new T[tempCapacity];
+            return temporary;
+           
+        }
+        private void CopyValuesToTemporaryArray(T[] tempArray, int tempCapacity) 
+        {
+            for (int i = 0; i < tempCapacity; i++)
+            {
+                tempArray[i] = underLyingArray[i];
+            }
+        }
+        private void CopyValuesToCurrentArray(T[] tempArray, int tempCapacity) 
+        {
+            for (int i = 0; i < tempCapacity; i++)
+            {
+                this.underLyingArray[i] = tempArray[i];
+            }
+        }
+        private void ExapndCurrentArray()
+        {
+            this.capacity *= 2;
+        }
+        
 
     }
 }
