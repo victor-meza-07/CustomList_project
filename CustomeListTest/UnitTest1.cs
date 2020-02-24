@@ -7,8 +7,35 @@ namespace CustomeListTest
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Add_newGenericObjectToList_ListCountIncrease()
         {
+            //Arrange
+            //Act 
+            //Assert
+        }
+        public void Add_newGenericObjectToList_NewArrayIsCreated()
+        {
+            //Arrange
+            //Act 
+            //Assert
+        }
+        public void Add_newGenericObjectToList_ObjectIsPlacedInProperListIndex()
+        {
+            //Arrange
+            //Act 
+            //Assert
+        }
+        public void Add_newGenericObjectToList_NewArraySizeisSufficientToHoldDouble()
+        {
+            //Arrange
+            //Act 
+            //Assert
+        }
+        public void Add_newGenericObjectToList_ErrorThrowsWhenMismatchedItemsareAdded()
+        {
+            //Arrange
+            //Act 
+            //Assert
         }
     }
 }
