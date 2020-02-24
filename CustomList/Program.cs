@@ -10,7 +10,11 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-           
+
+            Gauntlet<int> gn = new Gauntlet<int>();
+            
+
+
         }
     }
 }
