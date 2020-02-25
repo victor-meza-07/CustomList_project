@@ -65,14 +65,6 @@ namespace CustomList
         {
             CustomList<T> returnedList = new CustomList<T>();
 
-            //find common items in list one that list 2 has
-                //Scan list one for every item
-                    //Scan list two and check if thre is a similar item
-                        //if so, Remove this instance from list one
-                        // if not, continue in the loop.
-            //Remove that item from list one
-            //repeat step one until no items are shared;
-
             bool doWeShareItems = true;
             do
             {
@@ -95,8 +87,6 @@ namespace CustomList
                 doWeShareItems = false;
             }
             while (doWeShareItems == true);
-
-
             returnedList = listOne;
 
             return returnedList;

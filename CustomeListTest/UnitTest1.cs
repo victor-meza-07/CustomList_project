@@ -354,14 +354,39 @@ namespace CustomeListTest
             Assert.AreEqual(expectedList, actualListint);
         }
         [TestMethod]
+        [ExpectedException (typeof(ArgumentOutOfRangeException))]
         public void SubtractionOperator_BigListFromSmallList_NumbersAreShiftedPropperly() 
         {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList1 = new CustomList<int>();
+            customList.Add(1);
+            customList.Add(2);
+            customList.Add(3);
+            customList.Add(2);
+            customList1.Add(2);
+            int actual;
 
+
+            customList = customList1 - customList;
+            actual = customList[0];
         }
         [TestMethod]
         public void SubtractionOperator_AllInstanceRemovedFromList() 
         {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList1 = new CustomList<int>();
+            customList.Add(1);
+            customList.Add(2);
+            customList.Add(3);
+            customList.Add(2);
+            customList1.Add(2);
+            int actual;
+            int expected = 3;
 
+            customList = customList - customList1;
+            actual = customList[1];
+
+            Assert.AreEqual(expected, actual);
         }
     }
 }
