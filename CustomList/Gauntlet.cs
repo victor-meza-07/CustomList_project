@@ -61,44 +61,78 @@ namespace CustomList
         public void Lose(T item) 
         {
             //Get First Instance Index
+            int index = Return_FirstInstanceIndice(item);
+            //Check if Item was found;
+            bool found = Return_IfItemWasFound(index);
             //Delete Item at that position in the underlying array
-            //check if count is Half of array capacity
-                
-                //If So -> Copy Array to temp array of half size
-                //Copy all items to Temp Array
-                //Half the capacity of current array
-                //Copy Items Back to the current array - 1 position after the First Instance
-                //Delete Temporary Array
+            Delete_ItemAtGivenIndexIfFound(found, index);
 
-                //If not -> Maintain Current Array
-                //Copy all values to temporary array
-                //Default all values on current array
-                //Copy all values to current array REMEBER to Sift All Positions Back one from first instance of object
+            //If not -> Maintain Current Array
+            T[] temporary = CreateTemporaryArray(this.capacity);
+            //Copy all values to temporary array
+            CopyValuesToTemporaryArray(temporary, this.capacity);
+            //Default all values on current array
+            SetNewArrayDefaultValues(this.underLyingArray, this.capacity);
+            //Copy all values to current array REMEBER to Sift All Positions Back one from first instance of object
+            Shift_ItemsToCurrentArray(index, temporary, this.capacity);
             
-            //Decrease Count By 1
-            //Update Capacity;
         }
 
 
 
         /* Private Support Methods */
 
+
+        
+        private void Delete_ItemAtGivenIndexIfFound(bool found, int index) 
+        {
+            if (found == true) 
+            {
+                underLyingArray[index] = default;
+            }
+        }
         private int Return_FirstInstanceIndice(T item) 
         {
             int index = 0;
 
             for (int i = 0; i < count; i++)
             {
-                if (item.Equals(underLyingArray[i])) 
+                if (item.Equals(underLyingArray[i]))
                 {
-                    index = 1;
+                    index = i;
                     break;
+                }
+                else 
+                {
+                    index = -1;
                 }
             }
 
             return index;
         }
+        private bool Return_IfItemWasFound(int index) 
+        {
+            bool found = false;
 
+            if (index > -1) 
+            {
+                found = true;
+            }
+
+            return found;
+        }
+        private void Shift_ItemsToCurrentArray(int indexOfFirstIndex, T[] tempArray, int tempCapacity) 
+        {
+            for (int i = 0; i < tempCapacity; i++)
+            {
+                if (i == indexOfFirstIndex) 
+                {
+                    underLyingArray[i] = tempArray[i + 1];
+                }
+                underLyingArray[i] = tempArray[i];
+            }
+            RemoveFromCount();
+        }
 
 
 
