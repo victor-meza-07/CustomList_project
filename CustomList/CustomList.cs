@@ -34,6 +34,7 @@ namespace CustomList
         {
             count = 0;
             capacity = 0;
+            
 
         }
 
@@ -172,25 +173,9 @@ namespace CustomList
 
         private void AddItemToUnderlyingArray(T item) 
         {
-            int index = IndexToAddTo(item);
+            int index = this.count;
             underLyingArray[index] = item;
             AddToCount();
-        }
-        private int IndexToAddTo(T item) //Checking for system Default not Type Default.
-        {
-            int index = 0;
-            
-
-            for (int i = 0; i < this.capacity; i++)
-            {
-                
-                if (underLyingArray[i].GetType() == default(T).GetType()) 
-                {
-                    index = i;
-                    break;
-                }
-            }
-            return index;
         }
         /// <summary>
         /// Adds to the count of the Gaunlet
@@ -217,11 +202,7 @@ namespace CustomList
         }
 
         //Should there be no underlying array, this will create one.
-        private T GetDefaultTValue(T item) 
-        {
-            T itemDefault = default(T);
-            return itemDefault;
-        }
+        
         private void CreateArray() 
         {
             bool NewOrExapnd = NewOrExpand();

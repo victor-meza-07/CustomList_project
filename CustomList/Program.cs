@@ -12,14 +12,14 @@ namespace CustomList
         {
 
             CustomList<int> gn = new CustomList<int>();
-            gn.Add(1);
-            gn.Add(1);
-            gn.Add(1);
-            gn.Add(1);
-            
 
-            string x = gn.ToString();
-            Console.WriteLine(x+"Text");
+            gn.Add(1);
+            gn.Add(1);
+            gn.Add(1);
+            gn.Add(1);
+
+            string me = gn.ToString();
+
         }
     }
 }

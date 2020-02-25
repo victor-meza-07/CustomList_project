@@ -237,7 +237,7 @@ namespace CustomeListTest
         {
             CustomList<int> customList = new CustomList<int>();
             int one = 1;
-            string expected = "1\n1\n1\n";
+            string expected = "1\r\n1\r\n1\r\n";
             string actual;
 
             customList.Add(one);
