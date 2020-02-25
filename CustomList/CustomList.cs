@@ -61,6 +61,17 @@ namespace CustomList
             }
             return customList;
         }
+        public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo) 
+        {
+            CustomList<T> returnedList = new CustomList<T>();
+
+
+
+
+
+
+            return returnedList;
+        }
 
 
         /// <summary>
@@ -132,19 +143,6 @@ namespace CustomList
 
 
         /* Private Support Methods */
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         private void Delete_ItemAtGivenIndexIfFound(bool found, int index) 
         {
@@ -237,7 +235,6 @@ namespace CustomList
         }
 
         //Should there be no underlying array, this will create one.
-        
         private void CreateArray() 
         {
             bool NewOrExapnd = NewOrExpand();

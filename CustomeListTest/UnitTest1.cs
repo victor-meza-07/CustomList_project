@@ -353,5 +353,12 @@ namespace CustomeListTest
 
             Assert.AreEqual(expectedList, actualListint);
         }
+        [TestMethod]
+        public void SubtractionOperator_BigListFromSmallList_NumbersAreShiftedPropperly() 
+        {
+
+        }
+        [TestMethod]
+        public void SubtractionOperator_FirstInstanceRemovedFromList() { }
     }
 }
