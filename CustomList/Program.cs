@@ -11,14 +11,15 @@ namespace CustomList
         static void Main(string[] args)
         {
 
-            Gauntlet<string> gn = new Gauntlet<string>();
-            gn.Collect("Howdy");
-            gn.Collect("Hello");
-            gn.Collect("Mr SandMan");
-            gn.Collect("Something Else");
-            gn.Lose("Hello");
+            CustomList<string> gn = new CustomList<string>();
+            gn.Add("Howdy");
+            gn.Add("Hello");
+            gn.Add("Mr SandMan");
+            gn.Add("Something Else");
+            gn.Remove("Hello");
 
-            string x = gn[15];
+            string x = gn.ToString();
+            Console.WriteLine(x+"Text");
         }
     }
 }

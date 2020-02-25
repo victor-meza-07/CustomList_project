@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class Gauntlet<T>
+    public class CustomList<T>
     {
         public int Count { get { return count; } }
         public T this[int i]
@@ -30,7 +30,7 @@ namespace CustomList
         private T[] underLyingArray;
 
 
-        public Gauntlet()
+        public CustomList()
         {
             count = 0;
             capacity = 0;
@@ -41,7 +41,7 @@ namespace CustomList
         /// <summary>
         /// Adds an Item to the list
         /// </summary>
-        public void Collect(T item)
+        public void Add(T item)
         {
             bool checkIFFull = CheckFullStatus();
             if (checkIFFull == true)
@@ -58,7 +58,7 @@ namespace CustomList
         /// Will Remove The first Instance of An Item in your list
         /// </summary>
         /// <param name="item"></param>
-        public void Lose(T item) 
+        public void Remove(T item) 
         {
             //Get First Instance Index
             int index = Return_FirstInstanceIndice(item);
