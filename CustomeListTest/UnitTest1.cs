@@ -65,7 +65,6 @@ namespace CustomeListTest
             //Arrange
             Gauntlet<string> gauntlet = new Gauntlet<string>();
             string object1 = "Look at Me";
-            string testObject = "Test";
             string expected = "Test";
             string actual;
 
@@ -168,6 +167,25 @@ namespace CustomeListTest
             gauntlet.Collect(element1);
             gauntlet.Lose(2);
             actual = gauntlet.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Remove_ItemsAreShiftedOneIndiceValue() 
+        {
+            Gauntlet<string> gauntlet = new Gauntlet<string>();
+            string element1 = "Hello";
+            string element2 = " ";
+            string element3 = "World";
+            string expected = "World";
+            string actual;
+
+            gauntlet.Collect(element1);
+            gauntlet.Collect(element2);
+            gauntlet.Collect(element3);
+            gauntlet.Lose(element2);
+
+            actual = gauntlet[1];
 
             Assert.AreEqual(expected, actual);
         }
