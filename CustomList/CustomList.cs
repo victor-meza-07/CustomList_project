@@ -13,15 +13,16 @@ namespace CustomList
         { 
             get 
             {
-                if (i > (this.count - 1)) { throw new ArgumentOutOfRangeException(); }
+                if (i >= this.count) { throw new ArgumentOutOfRangeException(); }
                 else { return underLyingArray[i]; }
             } 
             set 
             {
-                if (i > (this.count - 1)) { throw new ArgumentOutOfRangeException(); }
+                if (i >= this.count) { throw new ArgumentOutOfRangeException(); }
                 else { underLyingArray[i] = value; }
             } 
         }
+        
         public int Capacity { get { return capacity; } }
 
 
@@ -34,8 +35,31 @@ namespace CustomList
         {
             count = 0;
             capacity = 0;
-            
+        }
+        public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo) 
+        {
+            CustomList<T> customList = new CustomList<T>();
+            int listOneCapacity = listOne.Capacity;
+            int listTwoCapacity = listTwo.Capacity;
 
+            customList.capacity = listOneCapacity + listTwoCapacity;
+            customList.underLyingArray = new T[customList.Capacity];
+
+            for (int i = 0; i < listOne.count; i++)
+            {
+                customList.count++;
+                customList[i] = listOne[i];
+                
+            }
+            int CounterForSecondList = 0;
+            for (int i = (listOne.count); i < (listTwo.count + listOne.count); i++)
+            {
+                customList.count++;
+                customList[i] = listTwo[CounterForSecondList];
+                CounterForSecondList++;
+                
+            }
+            return customList;
         }
 
 
@@ -108,6 +132,17 @@ namespace CustomList
 
 
         /* Private Support Methods */
+
+
+
+
+
+
+
+
+
+
+
 
 
 

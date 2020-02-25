@@ -250,5 +250,108 @@ namespace CustomeListTest
 
 
         }
+        [TestMethod]
+        public void AdditionOperator_BigListToSmallList_ItemsAllocatedPropperly() 
+        {
+            CustomList<int> custom = new CustomList<int>();
+            custom.Add(1);
+            custom.Add(2);
+            custom.Add(3);
+            CustomList<int> custom1 = new CustomList<int>();
+            custom1.Add(3);
+            custom1.Add(4);
+            CustomList<int> actualList = new CustomList<int>();
+
+            int expectedList = 3; //index: 2
+            int actualListint;
+
+
+            actualList = custom + custom1;
+            actualListint = actualList[2];
+
+
+            Assert.AreEqual(actualListint, expectedList);
+        }
+        [TestMethod]
+        public void AdditionOperator_SmallListToBigList_ItemsAllocatedPropperly()
+        {
+            CustomList<int> custom = new CustomList<int>();
+            custom.Add(1);
+            custom.Add(2);
+            custom.Add(3);
+            CustomList<int> custom1 = new CustomList<int>();
+            custom1.Add(3);
+            custom1.Add(4);
+            custom1.Add(4);
+            custom1.Add(4);
+            custom1.Add(4);
+            CustomList<int> actualList = new CustomList<int>();
+
+            int expectedList = 3; //index: 2
+            int actualListint;
+
+
+            actualList = custom + custom1;
+            actualListint = actualList[2];
+
+
+            Assert.AreEqual(actualListint, expectedList);
+        }
+        [TestMethod]
+        public void AdditionOperator_PopulatedListToEmptyList_ItemsAllocatedPropperly()
+        {
+            CustomList<int> custom = new CustomList<int>();
+            custom.Add(1);
+            custom.Add(2);
+            custom.Add(3);
+            CustomList<int> custom1 = new CustomList<int>();
+            CustomList<int> actualList = new CustomList<int>();
+
+            int expectedList = 3; //index: 2
+            int actualListint;
+
+
+            actualList = custom + custom1;
+            actualListint = actualList[2];
+
+
+            Assert.AreEqual(actualListint, expectedList);
+        }
+        [TestMethod]
+        public void AdditionOperator_EmptyToEmptyList_CountStaysTheSame()
+        {
+            CustomList<int> custom = new CustomList<int>();
+            CustomList<int> custom1 = new CustomList<int>();
+            
+            CustomList<int> actualList = new CustomList<int>();
+
+            int expectedCount = 0; //index: 2
+            int actualListint;
+
+
+            actualList = custom + custom1;
+            actualListint = actualList.Count;
+
+
+            Assert.AreEqual(expectedCount, actualListint);
+        }
+        [TestMethod]
+        public void AdditionOperator_PopulatedListToItself()
+        {
+            CustomList<int> custom = new CustomList<int>();
+            custom.Add(1);
+            custom.Add(2);
+            custom.Add(3);
+
+            int expectedList = 3; //index: 5
+            int actualListint;
+
+
+            custom += custom;
+            actualListint = custom[5];
+
+
+            Assert.AreEqual(expectedList, actualListint);
+        }
     }
 }

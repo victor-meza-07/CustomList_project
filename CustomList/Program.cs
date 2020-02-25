@@ -12,12 +12,16 @@ namespace CustomList
         {
 
             CustomList<int> gn = new CustomList<int>();
-
-            gn.Add(1);
-            gn.Add(1);
-            gn.Add(1);
             gn.Add(1);
 
+            CustomList<int> gn1 = new CustomList<int>();
+            gn1.Add(2);
+            gn1.Add(2);
+            gn1.Add(2);
+            gn1.Add(2);
+
+
+            gn = gn + gn1;
             string me = gn.ToString();
 
         }
