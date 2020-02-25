@@ -359,6 +359,9 @@ namespace CustomeListTest
 
         }
         [TestMethod]
-        public void SubtractionOperator_FirstInstanceRemovedFromList() { }
+        public void SubtractionOperator_AllInstanceRemovedFromList() 
+        {
+
+        }
     }
 }

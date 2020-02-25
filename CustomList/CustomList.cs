@@ -65,10 +65,39 @@ namespace CustomList
         {
             CustomList<T> returnedList = new CustomList<T>();
 
+            //find common items in list one that list 2 has
+                //Scan list one for every item
+                    //Scan list two and check if thre is a similar item
+                        //if so, Remove this instance from list one
+                        // if not, continue in the loop.
+            //Remove that item from list one
+            //repeat step one until no items are shared;
+
+            bool doWeShareItems = true;
+            do
+            {
+                
+                for (int i = (listOne.Count - 1); i >= 0; i--)
+                {
+                    for (int j = 0; j < listTwo.Count; j++) // removes item properly, but keeps looping after item has been removed
+                    {
+                        if (listOne.Count == 0) 
+                        {
+                            break;
+                        }
+                        else if (listOne[i].Equals(listTwo[j])) 
+                        {
+                            T item = listTwo[j];
+                            listOne.Remove(item);
+                        }
+                    }
+                }
+                doWeShareItems = false;
+            }
+            while (doWeShareItems == true);
 
 
-
-
+            returnedList = listOne;
 
             return returnedList;
         }
