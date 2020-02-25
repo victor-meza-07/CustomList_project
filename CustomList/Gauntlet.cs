@@ -27,7 +27,6 @@ namespace CustomList
 
         private int count;
         private int capacity;
-
         private T[] underLyingArray;
 
 
@@ -55,13 +54,62 @@ namespace CustomList
                 AddItemToUnderlyingArray(item);
             }
         }
+        /// <summary>
+        /// Will Remove The first Instance of An Item in your list
+        /// </summary>
+        /// <param name="item"></param>
+        public void Lose(T item) 
+        {
+            //Get First Instance Index
+            //Delete Item at that position in the underlying array
+            //check if count is Half of array capacity
+                
+                //If So -> Copy Array to temp array of half size
+                //Copy all items to Temp Array
+                //Half the capacity of current array
+                //Copy Items Back to the current array - 1 position after the First Instance
+                //Delete Temporary Array
+
+                //If not -> Maintain Current Array
+                //Copy all values to temporary array
+                //Default all values on current array
+                //Copy all values to current array REMEBER to Sift All Positions Back one from first instance of object
+            
+            //Decrease Count By 1
+            //Update Capacity;
+        }
 
 
 
         /* Private Support Methods */
 
+        private int Return_FirstInstanceIndice(T item) 
+        {
+            int index = 0;
 
-            //Possible place of Null ExceptionError
+            for (int i = 0; i < count; i++)
+            {
+                if (item.Equals(underLyingArray[i])) 
+                {
+                    index = 1;
+                    break;
+                }
+            }
+
+            return index;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
         private void AddItemToUnderlyingArray(T item) 
         {
             int index = IndexToAddTo(item);
@@ -177,7 +225,5 @@ namespace CustomList
         {
             this.capacity *= 2;
         }
-        
-
     }
 }
