@@ -143,6 +143,34 @@ namespace CustomeListTest
 
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void Remove_GenericObject_CountDecreases() 
+        {
+            Gauntlet<int> gauntlet = new Gauntlet<int>();
+            int element1 = 1;
+            int expected = 0;
+            int actual;
+
+            gauntlet.Collect(element1);
+            gauntlet.Lose(element1);
+            actual = gauntlet.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Remove_ItemNotInList_RemoveDoesNotBreak() 
+        {
+            Gauntlet<int> gauntlet = new Gauntlet<int>();
+            int element1 = 1;
+            int expected = 1;
+            int actual;
+
+            gauntlet.Collect(element1);
+            gauntlet.Lose(2);
+            actual = gauntlet.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
 
     }
 }

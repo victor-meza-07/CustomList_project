@@ -67,23 +67,49 @@ namespace CustomList
             //Delete Item at that position in the underlying array
             Delete_ItemAtGivenIndexIfFound(found, index);
 
-            //If not -> Maintain Current Array
-            T[] temporary = CreateTemporaryArray(this.capacity);
-            //Copy all values to temporary array
-            CopyValuesToTemporaryArray(temporary, this.capacity);
-            //Default all values on current array
-            SetNewArrayDefaultValues(this.underLyingArray, this.capacity);
-            //Copy all values to current array REMEBER to Sift All Positions Back one from first instance of object
-            Shift_ItemsToCurrentArray(index, temporary, this.capacity);
+            if (found == true) 
+            {
+                //If not -> Maintain Current Array
+                T[] temporary = CreateTemporaryArray(this.capacity);
+                //Copy all values to temporary array
+                CopyValuesToTemporaryArray(temporary, this.capacity);
+                //Default all values on current array
+                SetNewArrayDefaultValues(this.underLyingArray, this.capacity);
+                //Copy all values to current array REMEBER to Sift All Positions Back one from first instance of object
+                Shift_ItemsToCurrentArray(index, temporary, this.capacity);
+            }
             
         }
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder(null);
+            
 
+            if (count > 0) 
+            {
+                for (int i = 0; i < this.count; i++)
+                {
+                    if (i == 0) { sb.AppendLine(underLyingArray[i].ToString()); }
+                    else 
+                    {
+                        if (underLyingArray[i] != default) 
+                        {
+                            sb.AppendLine(underLyingArray[i].ToString());
+                        }
+                    }
+                }
+            }
+
+            string returned = sb.ToString();
+
+            return returned;
+        }
 
 
         /* Private Support Methods */
 
 
-        
+
         private void Delete_ItemAtGivenIndexIfFound(bool found, int index) 
         {
             if (found == true) 
@@ -125,9 +151,16 @@ namespace CustomList
         {
             for (int i = 0; i < tempCapacity; i++)
             {
-                if (i == indexOfFirstIndex)
+                if (i >= indexOfFirstIndex)
                 {
-                    underLyingArray[i] = tempArray[i + 1];
+                    if (i == (tempCapacity - 1))
+                    {
+                        underLyingArray[i - 1] = tempArray[i];
+                    }
+                    else 
+                    {
+                        underLyingArray[i] = tempArray[i + 1];
+                    }
                 }
                 else 
                 {
@@ -136,16 +169,6 @@ namespace CustomList
             }
             RemoveFromCount();
         }
-
-
-
-
-
-
-
-
-
-
 
         private void AddItemToUnderlyingArray(T item) 
         {
