@@ -22,6 +22,7 @@ namespace CustomList
                 else { underLyingArray[i] = value; }
             } 
         }
+        public int Capacity { get { return capacity; } }
 
 
         private int count;
