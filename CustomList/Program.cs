@@ -11,10 +11,11 @@ namespace CustomList
         static void Main(string[] args)
         {
 
-            Gauntlet<int> gn = new Gauntlet<int>();
-            
+            Gauntlet<string> gn = new Gauntlet<string>();
+            gn.Collect("Howdy");
+            gn.Collect("Hello");
 
-
+            string x = gn[0];
         }
     }
 }

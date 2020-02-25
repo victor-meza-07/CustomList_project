@@ -15,7 +15,6 @@ namespace CustomeListTest
             //Arrange
             Gauntlet<int> gauntlet = new Gauntlet<int>();
             int object1 = 1;
-            int cGaunletCount = gauntlet.Count;
             int expected = 1;
             int actual;
 
@@ -27,46 +26,92 @@ namespace CustomeListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
+        [ExpectedException (typeof(ArgumentOutOfRangeException))]
         public void Add_newGenericObjectToList_NewArrayIsCreated()
         {
             //Arrange
             Gauntlet<string> gauntlet = new Gauntlet<string>();
-            string Soultone = "Soul";
-            string expected = null;
-            string actual;
+            string Soultone;
+            
 
             //Act
-            gauntlet.Collect(Soultone);
-            gauntlet.Collect(Soultone);
-            gauntlet.Collect(Soultone);
-            gauntlet.Collect(Soultone);
-            gauntlet.Collect(Soultone);
-
-            //Gotta add an indexing function
-
+            Soultone = gauntlet[10];
+            //Gotta add an indexing function (override)
+          
+            //Argument out of range expection
             //Assert
-            
+    
         }
         [TestMethod]
         public void Add_newGenericObjectToList_ObjectIsPlacedInProperListIndex()
         {
+
             //Arrange
+            Gauntlet<int> gauntlet = new Gauntlet<int>(); 
+            int element1 = 1;
+            int expected = element1;
+            int actual;
             //Act 
+            gauntlet.Collect(element1);
+            actual = gauntlet[0];
             //Assert
+            Assert.AreEqual(expected, actual);
+
         }
         [TestMethod]
+        [ExpectedException (typeof(ArgumentOutOfRangeException))]
         public void Add_newGenericObjectToList_NewArraySizeisSufficientToHoldDouble()
         {
             //Arrange
-            //Act 
+            Gauntlet<string> gauntlet = new Gauntlet<string>();
+            string object1 = "Look at Me";
+            string testObject = "Test";
+            string expected = "Test";
+            string actual;
+
+            //Act
+            gauntlet.Collect(object1);
+            gauntlet.Collect(object1);
+            gauntlet.Collect(object1);
+            gauntlet.Collect(object1);
+            gauntlet.Collect(object1);
+            gauntlet[7] = expected;
+            actual = gauntlet[7];
+
             //Assert
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Add_newGenericObjectToList_ErrorThrowsWhenMismatchedItemsareAdded()
+        public void Add_newGenericObjectToList_GenericObjectHasOwnIndice() 
         {
             //Arrange
-            //Act 
+            Gauntlet<string> gauntlet = new Gauntlet<string>();
+            string object1 = "Victor";
+            string object2 = "Nevin";
+            string expected = "Victor";
+            string actual;
+
+            //Act
+            gauntlet.Collect(object1);
+            gauntlet.Collect(object2);
+            actual = gauntlet[0];
+
             //Assert
+            Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void Add_newIntObjectToList_IntObjectIsRecognizedAndOwnDefaultIsAdded() 
+        {
+            Gauntlet<int> gauntlet = new Gauntlet<int>();
+            int element1 = 1;
+            int expected = 1;
+            int actual;
+
+            gauntlet.Collect(element1);
+            actual = gauntlet[0];
+
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }

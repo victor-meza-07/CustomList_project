@@ -9,36 +9,79 @@ namespace CustomList
     public class Gauntlet<T>
     {
         public int Count { get { return count; } }
+        public T this[int i]
+        { 
+            get 
+            {
+                if (i > (this.count - 1)) { throw new ArgumentOutOfRangeException(); }
+                else { return underLyingArray[i]; }
+            } 
+            set 
+            {
+                if (i > (this.count - 1)) { throw new ArgumentOutOfRangeException(); }
+                else { underLyingArray[i] = value; }
+            } 
+        }
+
+
         private int count;
         private int capacity;
-        
+
         private T[] underLyingArray;
-        
-        
+
+
         public Gauntlet()
         {
             count = 0;
             capacity = 0;
+
         }
 
 
         /// <summary>
         /// Adds an Item to the list
         /// </summary>
-        public void Collect(T item) 
+        public void Collect(T item)
         {
             bool checkIFFull = CheckFullStatus();
-            if (checkIFFull == true) 
+            if (checkIFFull == true)
             {
-                CreateArray();
+                CreateArray(); // Null Exception with strings 
+                AddItemToUnderlyingArray(item);
+            }
+            else 
+            {
+                AddItemToUnderlyingArray(item);
             }
         }
-        
-        
-        
-        
+
+
+
         /* Private Support Methods */
-        
+
+
+            //Possible place of Null ExceptionError
+        private void AddItemToUnderlyingArray(T item) 
+        {
+            int index = IndexToAddTo(item);
+            underLyingArray[index] = item;
+            AddToCount();
+        }
+        private int IndexToAddTo(T item) 
+        {
+            int index = 0;
+            
+            for (int i = 0; i < this.capacity; i++)
+            {
+                
+                if (underLyingArray[i] == default) 
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
         /// <summary>
         /// Adds to the count of the Gaunlet
         /// </summary>
@@ -70,6 +113,7 @@ namespace CustomList
             if (NewOrExapnd == true)
             {
                 this.capacity = 4;
+                underLyingArray = new T[this.capacity];
                 SetNewArrayDefaultValues(underLyingArray, this.capacity);
             }
             else 
@@ -80,15 +124,13 @@ namespace CustomList
                 
                 CopyValuesToTemporaryArray(temporary, tempCapacity);
                 ExapndCurrentArray();
+                underLyingArray = new T[this.capacity];
 
                 SetNewArrayDefaultValues(underLyingArray, this.capacity);
                 CopyValuesToCurrentArray(temporary, tempCapacity);
                //Destroy the previous array (Happens AutoMagically)
             }
         }
-        //Sets the default values of the new array
-
-        //Will Return False if We need To Expand;
         private bool NewOrExpand() 
         {
             bool NOE = false;
