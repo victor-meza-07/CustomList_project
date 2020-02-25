@@ -189,6 +189,49 @@ namespace CustomeListTest
 
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void Remove_OnlyFirstInstance_OnlyFirstInstanceIsRemoved() 
+        {
+            Gauntlet<string> gauntlet = new Gauntlet<string>();
+            string element1 = "Hello";
+            string element2 = "World";
+            string expected = "Hello";
+            string actual;
+
+            gauntlet.Collect(element1);
+            gauntlet.Collect(element2);
+            gauntlet.Collect(element1);
+            gauntlet.Collect(element2);
+            gauntlet.Collect(element1);
+            gauntlet.Collect(element2);
+
+            gauntlet.Lose(element1);
+            actual = gauntlet[1];
+
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void Remove_OneItem_CountOnlyDecreasesBy1() 
+        {
+            Gauntlet<string> gauntlet = new Gauntlet<string>();
+            string element1 = "Hello";
+            string element2 = "World";
+            int expected = 5;
+            int actual;
+
+            gauntlet.Collect(element1);
+            gauntlet.Collect(element2);
+            gauntlet.Collect(element1);
+            gauntlet.Collect(element2);
+            gauntlet.Collect(element1);
+            gauntlet.Collect(element2);
+
+            gauntlet.Lose(element1);
+            actual = gauntlet.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
 
     }
 }

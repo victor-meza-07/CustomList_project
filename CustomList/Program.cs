@@ -18,7 +18,7 @@ namespace CustomList
             gn.Collect("Something Else");
             gn.Lose("Hello");
 
-            string x = gn.ToString();
+            string x = gn[15];
         }
     }
 }
