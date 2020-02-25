@@ -16,12 +16,9 @@ namespace CustomList
             gn.Add(2);
             gn.Add(2);
 
-            CustomList<int> gn1 = new CustomList<int>();
-            gn1.Add(2);
+            CustomList<string> gn1 = new CustomList<string>();
+            gn1.Add("2");
             
-
-
-            gn = gn1 - gn;
             string me = gn.ToString();
 
         }
