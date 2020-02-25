@@ -14,9 +14,11 @@ namespace CustomList
             Gauntlet<string> gn = new Gauntlet<string>();
             gn.Collect("Howdy");
             gn.Collect("Hello");
-            gn.Lose("Howdy");
+            gn.Collect("Mr SandMan");
+            gn.Collect("Something Else");
+            gn.Lose("Hello");
 
-            string x = gn[0];
+            string x = gn[1];
         }
     }
 }

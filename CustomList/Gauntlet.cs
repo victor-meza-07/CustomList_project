@@ -125,11 +125,14 @@ namespace CustomList
         {
             for (int i = 0; i < tempCapacity; i++)
             {
-                if (i == indexOfFirstIndex) 
+                if (i == indexOfFirstIndex)
                 {
                     underLyingArray[i] = tempArray[i + 1];
                 }
-                underLyingArray[i] = tempArray[i];
+                else 
+                {
+                    underLyingArray[i] = tempArray[i];
+                }
             }
             RemoveFromCount();
         }
