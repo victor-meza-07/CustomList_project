@@ -11,12 +11,12 @@ namespace CustomList
         static void Main(string[] args)
         {
 
-            CustomList<string> gn = new CustomList<string>();
-            gn.Add("Howdy");
-            gn.Add("Hello");
-            gn.Add("Mr SandMan");
-            gn.Add("Something Else");
-            gn.Remove("Hello");
+            CustomList<int> gn = new CustomList<int>();
+            gn.Add(1);
+            gn.Add(1);
+            gn.Add(1);
+            gn.Add(1);
+            
 
             string x = gn.ToString();
             Console.WriteLine(x+"Text");

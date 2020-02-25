@@ -236,6 +236,18 @@ namespace CustomeListTest
         public void ToString_AllItems_TurnedToOneString() 
         {
             CustomList<int> customList = new CustomList<int>();
+            int one = 1;
+            string expected = "1\n1\n1\n";
+            string actual;
+
+            customList.Add(one);
+            customList.Add(one);
+            customList.Add(one);
+
+            actual = customList.ToString();
+
+            Assert.AreEqual(expected, actual);
+
 
         }
     }

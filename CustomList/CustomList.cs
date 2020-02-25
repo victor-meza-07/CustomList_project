@@ -176,14 +176,15 @@ namespace CustomList
             underLyingArray[index] = item;
             AddToCount();
         }
-        private int IndexToAddTo(T item) 
+        private int IndexToAddTo(T item) //Checking for system Default not Type Default.
         {
             int index = 0;
             
+
             for (int i = 0; i < this.capacity; i++)
             {
                 
-                if (underLyingArray[i] == default) 
+                if (underLyingArray[i].GetType() == default(T).GetType()) 
                 {
                     index = i;
                     break;
@@ -214,8 +215,13 @@ namespace CustomList
             }
             return full;
         }
-        
+
         //Should there be no underlying array, this will create one.
+        private T GetDefaultTValue(T item) 
+        {
+            T itemDefault = default(T);
+            return itemDefault;
+        }
         private void CreateArray() 
         {
             bool NewOrExapnd = NewOrExpand();
