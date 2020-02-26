@@ -125,7 +125,7 @@ namespace CustomeListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Add_FiveBewObjects_ListCapIncreasesToDouble()
+        public void Add_FiveNewObjects_ListCapIncreasesToDouble()
         {
             CustomList<int> gauntlet = new CustomList<int>();
             int element1 = 1;

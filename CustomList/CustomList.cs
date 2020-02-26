@@ -135,6 +135,10 @@ namespace CustomList
             }
             
         }
+        /// <summary>
+        /// Will Turn Every Item as one string with line breaks at end of every item
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder(null);
@@ -159,6 +163,12 @@ namespace CustomList
 
             return returned;
         }
+        /// <summary>
+        /// Will Return a new List of the two inputed in alternating order
+        /// </summary>
+        /// <param name="listOne"></param>
+        /// <param name="listTwo"></param>
+        /// <returns></returns>
         public CustomList<T> Zip(CustomList<T> listOne, CustomList<T> listTwo) 
         {
             CustomList<T> returnedList = new CustomList<T>();
@@ -207,6 +217,10 @@ namespace CustomList
             return returnedList;
         }
 
+        
+        
+
+        
 
         /* Private Support Methods */
 
