@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomList", "CustomList\CustomList.csproj", "{9CA5B469-C6B4-41C0-801D-2AF942AF8B68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomeListTest", "CustomeListTest\CustomeListTest.csproj", "{F2ADCCCA-3D83-4292-9BA2-2F0A3B042769}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomListTest", "CustomeListTest\CustomListTest.csproj", "{F2ADCCCA-3D83-4292-9BA2-2F0A3B042769}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

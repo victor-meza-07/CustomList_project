@@ -299,9 +299,6 @@ namespace CustomList
             underLyingArray[index] = item;
             AddToCount();
         }
-        /// <summary>
-        /// Adds to the count of the Gaunlet
-        /// </summary>
         private void AddToCount() 
         {
             this.count++;
@@ -310,9 +307,6 @@ namespace CustomList
         {
             this.count--;
         }
-        /// <summary>
-        /// Checks if the underlying array is full
-        /// </summary>
         private bool CheckFullStatus() 
         {
             bool full = false;

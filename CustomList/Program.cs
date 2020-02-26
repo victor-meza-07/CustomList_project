@@ -10,10 +10,7 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            CustomList<string> customList = new CustomList<string>();
-            customList.Add("Hello");
-
-            IEnumerator<string> enumerator = customList.GetEnumerator();
+           
         }
     }
 }
