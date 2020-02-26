@@ -400,9 +400,29 @@ namespace CustomeListTest
             int actual;
 
 
-            ExpectedList.Zip(customList, customList1);
+            ExpectedList = ExpectedList.Zip(customList, customList1);
             actual = ExpectedList[1];
 
+
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Zip_BigListToSmallList_OverflowAtEnd() 
+        {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList1 = new CustomList<int>();
+            CustomList<int> ExpectedList = new CustomList<int>();
+            customList.Add(10);
+            customList.Add(12);
+            customList.Add(14);
+            customList1.Add(11);
+            int expected = 14;
+            int actual;
+
+
+            ExpectedList = ExpectedList.Zip(customList, customList1);
+            actual = ExpectedList[3];
 
 
             Assert.AreEqual(expected, actual);
