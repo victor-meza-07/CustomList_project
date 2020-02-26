@@ -11,16 +11,53 @@ namespace CustomList
         static void Main(string[] args)
         {
 
-            CustomList<int> gn = new CustomList<int>();
-            gn.Add(2);
-            gn.Add(2);
-            gn.Add(2);
+            int[] test = new int[3];
+            int[] test1 = new int[4];
+            int[] finalArray;
 
-            CustomList<string> gn1 = new CustomList<string>();
-            gn1.Add("2");
-            
-            string me = gn.ToString();
+            if (test.Length > test1.Length)
+            {
+                finalArray = new int[test.Length + test1.Length];
+                for (int i = 0, j =1; i < test.Length; i++, j++)
+                {
+                    if (i >= test1.Length)
+                    {
+                        finalArray[i] = test[i];
+                    }
+                    else 
+                    {
+                        finalArray[i] = test[i];
+                        finalArray[j] = test1[i];
+                    }
+                }
+            }
+            else if (test.Length < test1.Length)
+            {
+                finalArray = new int[test.Length + test1.Length];
+                for (int i = 0, j = 1; i < test.Length; i++, j++)
+                {
+                    if (i >= test.Length)
+                    {
+                        finalArray[i] = test1[i];
+                    }
+                    else
+                    {
+                        finalArray[i] = test1[i];
+                        finalArray[j] = test[i];
+                    }
+                }
+            }
+            else 
+            {
+                finalArray = new int[test.Length + test1.Length];
+                for (int i = 0, j = 0; i < test.Length; i++, j++)
+                {
+                    finalArray[i] = test[i];
+                    finalArray[j] = test1[i];
+                }
+            }
 
         }
     }
 }
+  

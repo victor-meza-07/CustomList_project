@@ -159,6 +159,32 @@ namespace CustomList
 
             return returned;
         }
+        public CustomList<T> Zip(CustomList<T> listOne, CustomList<T> listTwo) 
+        {
+            CustomList<T> returnedList = new CustomList<T>();
+
+
+
+            //TODO: THIS WILL BE THE ZIP FUNCTION
+            int capacityListOne = listOne.capacity;
+            int capacityListTwo = listTwo.capacity;
+            bool haveWeLoopedThroughBoth = false; 
+            returnedList.capacity = capacityListOne + capacityListTwo;
+            //scan list one
+            //scan list two
+            //scan returned list
+            //alternate adding position i at position i ;ist one
+            //position i+1 = i of list 2;
+
+
+            //THINGS ID LIKE TO KNOW: WHICH ONE IS GREATER BECAUSE THAT WILL BE OUR OVERARCHING BOUNDS BOUNDS!
+            
+
+
+
+
+            return returnedList;
+        }
 
 
         /* Private Support Methods */

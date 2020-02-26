@@ -7,8 +7,8 @@ namespace CustomeListTest
     [TestClass]
     public class UnitTest1
     {
-        
-        
+
+
         [TestMethod]
         public void Add_newGenericObjectToList_ListCountIncrease()
         {
@@ -21,33 +21,33 @@ namespace CustomeListTest
             //Act
             gauntlet.Add(object1);
             actual = gauntlet.Count;
-            
+
             //Assert
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        [ExpectedException (typeof(ArgumentOutOfRangeException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Add_newGenericObjectToList_NewArrayIsCreated()
         {
             //Arrange
             CustomList<string> gauntlet = new CustomList<string>();
             string Soultone;
-            
+
 
             //Act
             Soultone = gauntlet[10];
             //Gotta add an indexing function (override)
-          
+
             //Argument out of range expection
             //Assert
-    
+
         }
         [TestMethod]
         public void Add_newGenericObjectToList_ObjectIsPlacedInProperListIndex()
         {
 
             //Arrange
-            CustomList<int> gauntlet = new CustomList<int>(); 
+            CustomList<int> gauntlet = new CustomList<int>();
             int element1 = 1;
             int expected = element1;
             int actual;
@@ -59,7 +59,7 @@ namespace CustomeListTest
 
         }
         [TestMethod]
-        [ExpectedException (typeof(ArgumentOutOfRangeException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Add_newGenericObjectToList_NewArraySizeisSufficientToHoldDouble()
         {
             //Arrange
@@ -81,7 +81,7 @@ namespace CustomeListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Add_newGenericObjectToList_GenericObjectHasOwnIndice() 
+        public void Add_newGenericObjectToList_GenericObjectHasOwnIndice()
         {
             //Arrange
             CustomList<string> gauntlet = new CustomList<string>();
@@ -99,7 +99,7 @@ namespace CustomeListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Add_newIntObjectToList_IntObjectIsRecognizedAndOwnDefaultIsAdded() 
+        public void Add_newIntObjectToList_IntObjectIsRecognizedAndOwnDefaultIsAdded()
         {
             CustomList<int> gauntlet = new CustomList<int>();
             int element1 = 1;
@@ -112,7 +112,7 @@ namespace CustomeListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Add_newBoolObjectToList_BoolObjectIsRecognized() 
+        public void Add_newBoolObjectToList_BoolObjectIsRecognized()
         {
             CustomList<bool> gauntlet = new CustomList<bool>();
             bool element1 = true;
@@ -125,7 +125,7 @@ namespace CustomeListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Add_FiveBewObjects_ListCapIncreasesToDouble() 
+        public void Add_FiveBewObjects_ListCapIncreasesToDouble()
         {
             CustomList<int> gauntlet = new CustomList<int>();
             int element1 = 1;
@@ -143,7 +143,7 @@ namespace CustomeListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Remove_GenericObject_CountDecreases() 
+        public void Remove_GenericObject_CountDecreases()
         {
             CustomList<int> gauntlet = new CustomList<int>();
             int element1 = 1;
@@ -157,7 +157,7 @@ namespace CustomeListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Remove_ItemNotInList_RemoveDoesNotBreak() 
+        public void Remove_ItemNotInList_RemoveDoesNotBreak()
         {
             CustomList<int> gauntlet = new CustomList<int>();
             int element1 = 1;
@@ -171,7 +171,7 @@ namespace CustomeListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Remove_ItemsAreShiftedOneIndiceValue() 
+        public void Remove_ItemsAreShiftedOneIndiceValue()
         {
             CustomList<string> gauntlet = new CustomList<string>();
             string element1 = "Hello";
@@ -190,7 +190,7 @@ namespace CustomeListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Remove_OnlyFirstInstance_OnlyFirstInstanceIsRemoved() 
+        public void Remove_OnlyFirstInstance_OnlyFirstInstanceIsRemoved()
         {
             CustomList<string> gauntlet = new CustomList<string>();
             string element1 = "Hello";
@@ -212,7 +212,7 @@ namespace CustomeListTest
 
         }
         [TestMethod]
-        public void Remove_OneItem_CountOnlyDecreasesBy1() 
+        public void Remove_OneItem_CountOnlyDecreasesBy1()
         {
             CustomList<string> gauntlet = new CustomList<string>();
             string element1 = "Hello";
@@ -233,7 +233,7 @@ namespace CustomeListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void ToString_AllItems_TurnedToOneString() 
+        public void ToString_AllItems_TurnedToOneString()
         {
             CustomList<int> customList = new CustomList<int>();
             int one = 1;
@@ -251,7 +251,7 @@ namespace CustomeListTest
 
         }
         [TestMethod]
-        public void AdditionOperator_BigListToSmallList_ItemsAllocatedPropperly() 
+        public void AdditionOperator_BigListToSmallList_ItemsAllocatedPropperly()
         {
             CustomList<int> custom = new CustomList<int>();
             custom.Add(1);
@@ -322,7 +322,7 @@ namespace CustomeListTest
         {
             CustomList<int> custom = new CustomList<int>();
             CustomList<int> custom1 = new CustomList<int>();
-            
+
             CustomList<int> actualList = new CustomList<int>();
 
             int expectedCount = 0; //index: 2
@@ -354,8 +354,8 @@ namespace CustomeListTest
             Assert.AreEqual(expectedList, actualListint);
         }
         [TestMethod]
-        [ExpectedException (typeof(ArgumentOutOfRangeException))]
-        public void SubtractionOperator_BigListFromSmallList_NumbersAreShiftedPropperly() 
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void SubtractionOperator_BigListFromSmallList_NumbersAreShiftedPropperly()
         {
             CustomList<int> customList = new CustomList<int>();
             CustomList<int> customList1 = new CustomList<int>();
@@ -371,7 +371,7 @@ namespace CustomeListTest
             actual = customList[0];
         }
         [TestMethod]
-        public void SubtractionOperator_AllInstanceRemovedFromList() 
+        public void SubtractionOperator_AllInstanceRemovedFromList()
         {
             CustomList<int> customList = new CustomList<int>();
             CustomList<int> customList1 = new CustomList<int>();
@@ -385,6 +385,25 @@ namespace CustomeListTest
 
             customList = customList - customList1;
             actual = customList[1];
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Zip_ItemsAreInAleternatingSpots() 
+        {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList1 = new CustomList<int>();
+            CustomList<int> ExpectedList = new CustomList<int>();
+            customList.Add(10);
+            customList1.Add(11);
+            int expected = 11;
+            int actual;
+
+
+            ExpectedList.Zip(customList, customList1);
+            actual = ExpectedList[1];
+
+
 
             Assert.AreEqual(expected, actual);
         }
