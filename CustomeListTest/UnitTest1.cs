@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CustomList;
+using System.Collections.Generic;
 
 namespace CustomeListTest
 {
@@ -424,6 +425,23 @@ namespace CustomeListTest
             ExpectedList = ExpectedList.Zip(customList, customList1);
             actual = ExpectedList[3];
 
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void GetEnumerator_EnumeratorIsPropperCount() 
+        {
+            CustomList<string> customList = new CustomList<string>();
+            customList.Add("Hello");
+            customList.Add("World");
+            string expected = "World";
+            string actual ="";
+
+
+            foreach (string stringy in customList) 
+            {
+                actual = stringy;
+            }
 
             Assert.AreEqual(expected, actual);
         }

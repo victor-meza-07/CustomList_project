@@ -216,8 +216,17 @@ namespace CustomList
 
             return returnedList;
         }
-
-        
+        /// <summary>
+        /// Will get the Enumerator of the current object
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator<T> GetEnumerator() 
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                yield return underLyingArray[i];
+            }
+        }
         
 
         
