@@ -13,12 +13,12 @@ namespace CustomList
         { 
             get 
             {
-                if (i >= this.count) { throw new ArgumentOutOfRangeException(); }
+                if ((i < 0) || (i >= this.count)) { throw new ArgumentOutOfRangeException(); }
                 else { return underLyingArray[i]; }
             } 
             set 
             {
-                if (i >= this.count) { throw new ArgumentOutOfRangeException(); }
+                if ((i < 0) || (i >= this.count)) { throw new ArgumentOutOfRangeException(); }
                 else { underLyingArray[i] = value; }
             } 
         }

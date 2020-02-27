@@ -445,5 +445,24 @@ namespace CustomeListTest
 
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void GetEnumerator_IntsareEnumeratingAndSumming() 
+        {
+            CustomList<int> customList = new CustomList<int>();
+            customList.Add(1);
+            customList.Add(2);
+            customList.Add(3);
+            customList.Add(4);
+            int expected = 10;
+            int actual = 0;
+
+
+            foreach (int inty in customList)
+            {
+                actual += inty;
+            }
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
