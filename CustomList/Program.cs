@@ -10,32 +10,25 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            CustomList<string> customList = new CustomList<string>();
-            CustomList<string> customList1 = new CustomList<string>();
-            customList.Add("One");
-            customList.Add("One");
-            customList.Add("One");
-            customList.Add("One");
-            customList.Add("One");
-            customList.Add("One");
-            customList.Add("One");
-            customList.Add("One");
-            customList.Add("One");
-            customList1.Add("Two");
-            customList1.Add("Two");
-            customList1.Add("Two");
-            customList1.Add("Two");
-            customList1.Add("Two");
-            customList1.Add("Two");
-            customList1.Add("Two");
-            customList1.Add("Two");
+            unsafe 
+            {
+                int* x;
+                int y = 10;
+                double[] arr = new double[20];
+                arr[1] = 40.0;
 
-
-            customList += customList1;
-
-            string newBoy = customList[-1];
-
-            Console.WriteLine(newBoy);
+                x = &y;
+                *x = 200;
+                *x = 15;
+                *x = 82;
+                *x = 77;
+                *x = 1010;
+                *x = 54321;
+                *x = 3455021;
+                
+            }
+            
+            
             Console.ReadLine();
         }
     }

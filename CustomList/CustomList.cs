@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         public int Count { get { return count; } }
         public T this[int i]
@@ -172,10 +173,11 @@ namespace CustomList
         public CustomList<T> Zip(CustomList<T> listOne, CustomList<T> listTwo) 
         {
             CustomList<T> returnedList = new CustomList<T>();
-
+            CustomList<T> holderList = new CustomList<T>();
+            CustomList<T> minHolder = new CustomList<T>();
             //TODO: THIS WILL BE THE ZIP FUNCTION
-            
-            if (listOne.Count > listTwo.Count) 
+
+            /*if (listOne.Count > listTwo.Count) 
             {
                 for (int i = 0; i < listOne.Count; i++)
                 {
@@ -212,6 +214,42 @@ namespace CustomList
                     returnedList.Add(listOne[i]);
                     returnedList.Add(listTwo[i]);
                 }
+            }*/
+
+
+            /*int maxNumber = Math.Max(listOne.Count, listTwo.Count);
+            int minNumber = Math.Min(listOne.Count, listTwo.Count);
+            holderList = listOne;
+            minHolder = listTwo;
+            if (maxNumber != listOne.Count) 
+            {
+                holderList = listTwo;
+                minHolder = listOne;
+            }
+            for (int i = 0; i < maxNumber; i++)
+            {
+                if (i >= minNumber)
+                {
+                    returnedList.Add(holderList[i]);
+                }
+                else 
+                {
+                    returnedList.Add(holderList[i]);
+                    returnedList.Add(minHolder[i]);
+                }
+            }*/
+
+            int longestListLength = Math.Max(listOne.Count, listTwo.Count);
+            for (int i = 0; i < longestListLength; i++)
+            {
+                if (listOne.Count > i) 
+                {
+                    returnedList.Add(listOne[i]);
+                }
+                if (i < listTwo.Count) 
+                {
+                    returnedList.Add(listTwo[i]);
+                }
             }
 
             return returnedList;
@@ -220,7 +258,8 @@ namespace CustomList
         /// Will get the Enumerator of the current object
         /// </summary>
         /// <returns></returns>
-        public IEnumerator<T> GetEnumerator() 
+        
+        IEnumerator IEnumerable.GetEnumerator()
         {
             for (int i = 0; i < Count; i++)
             {
@@ -229,7 +268,8 @@ namespace CustomList
         }
         
 
-        
+
+
 
         /* Private Support Methods */
 
